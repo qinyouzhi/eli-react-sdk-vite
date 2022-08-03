@@ -1,0 +1,125 @@
+{
+  "name": "eli-react-sdk",
+  "version": "1.0.0",
+  "description": "React SDK",
+  "author": "qinyoubing",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "types": "lib/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "lib",
+    "esm"
+  ],
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {
+    "@mui/icons-material": "^5.8.3",
+    "@mui/lab": "^5.0.0-alpha.85",
+    "@mui/styles": "^5.8.3",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.1",
+    "@types/node": "^16.11.36",
+    "@types/react": "^16.0.0",
+    "@types/react-dom": "^16.0.0",
+    "ahooks": "^3.4.1",
+    "array-move": "^4.0.0",
+    "axios": "^0.27.2",
+    "crypto-js": "^4.1.1",
+    "echarts": "^5.3.2",
+    "fbm-ui": "^1.4.5",
+    "hox": "2.0.0-alpha.0",
+    "immutability-helper": "^3.1.1",
+    "mockjs": "^1.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "sortablejs": "^1.15.0",
+    "typescript": "^4.7.2",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "clean": "rimraf lib esm build",
+    "prepare": "husky install",
+    "serve": "npm run dev",
+    "dev": "vite --mode development",
+    "build": "vite build",
+    "lib": "npm run clean && npm run lib:cjs && npm run lib:esm",
+    "lib:cjs": "ttsc -p tsconfig.json --target ES5 --module commonjs --outDir lib && node ./scripts/copy.js",
+    "lib:esm": "ttsc -p tsconfig.json --target ES5 --module ESNext --outDir esm && node ./scripts/copy.js",
+    "release": "np --no-yarn --no-tests --no-cleanup",
+    "pub": "npm run lib && npm publish",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .js,.ts,.tsx src/",
+    "lint-fix": "eslint --fix --ext .js,.ts,.tsx src/",
+    "commit": "git add . && commit"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "resolutions": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "@commitlint/prompt-cli": "^17.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "@vitejs/plugin-legacy": "^2.0.0",
+    "@vitejs/plugin-react": "^2.0.0",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-alias": "1.1.2",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "3.4.1",
+    "eslint-plugin-react": "^7.30.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "np": "^7.6.1",
+    "prettier": "^2.6.2",
+    "rollup-plugin-visualizer": "^5.7.1",
+    "shelljs": "^0.8.5",
+    "ttypescript": "^1.5.13",
+    "typescript-transform-paths": "^3.3.1",
+    "vite": "^3.0.4",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-mock": "^2.9.6"
+  }
+}

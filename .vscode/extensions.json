@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "flowtype.flow-for-vscode",
+    "esbenp.prettier-vscode",
+    "NuclleaR.vscode-extension-auto-import",
+    "formulahendry.auto-rename-tag",
+    "eamodio.gitlens",
+    "shardulm94.trailing-spaces",
+    "gruntfuggly.todo-tree",
+    "streetsidesoftware.code-spell-checker",
+    "shd101wyy.markdown-preview-enhanced",
+    "dweizhe.docthis-customize-tags",
+  ]
+}

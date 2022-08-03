@@ -1,0 +1,31 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx --no-install commitlint --edit $1
+
+## git 提交信息的 emoji 指南 https://gitmoji.js.org/
+##
+## 提交 header 部分，必须使用类型字段前缀，它由一个名词组成，只能是下面几种之一：
+##
+## build 编译相关的修改，例如发布版本、对项目构建或者依赖的改动
+## ci 持续集成修改
+## chore 其他修改, 比如改变构建流程、或者增加依赖库、工具等
+## docs 仅文档新增/改动
+## feat 新特性、新功能
+## fix 修补某功能的bug
+## perf 优化相关，比如提升性能、体验
+## refactor 重构某个功能
+## revert 回滚到上一个版本
+## style 代码格式修改, 注意不是 css 修改
+## test 测试用例修改
+##
+## 提交 body 部分，是对本次 commit 的详细描述，可以分成多行，提交者自由发挥。
+##
+## 提交 footer 部分，一般用于记录不兼容的改动，以 BREAKING CHANGE 开头，后面是对变动的描述、以及变动理由和迁移方法。最后还可以添加关闭的 issue：
+##
+## BREAKING CHANGE: <breaking change summary>
+##  // 空一行
+## <breaking change description + migration instructions>
+##  // 空一行
+##  // 空一行
+## Fixes #<issue number>
