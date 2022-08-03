@@ -4,6 +4,7 @@ import type { ConfigEnv, UserConfig } from 'vite';
 import { PORT, VITE_BASE_PATH, VITE_DROP_CONSOLE } from './config/constant';
 import { createVitePlugins } from './config/plugins';
 import pkg from './package.json';
+const constant = require('./scripts/constant');
 
 const { dependencies, devDependencies, name, version } = pkg;
 const __APP_INFO__ = {
@@ -58,7 +59,7 @@ const ViteConfig = ({ command, mode }: ConfigEnv): UserConfig => {
     },
     define: {
       __APP_INFO__: JSON.stringify(__APP_INFO__),
-      PUBLIC_BASE_URL: JSON.stringify(`https://fbm-api-${mode}.fbmms.cn`),
+      PUBLIC_BASE_URL: constant.PUBLIC_BASE_URL,
     },
   };
 };
