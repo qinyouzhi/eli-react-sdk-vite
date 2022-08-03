@@ -19,6 +19,9 @@
       "@constants/*": ["src/constants/*"],
       "@assets/*": ["src/assets/*"],
     },
+    "plugins": [
+      { "transform": "typescript-transform-paths" },
+    ],
     "lib": [
       "dom",
       "dom.iterable",
@@ -41,7 +44,6 @@
   "files": ["src/index.ts"],
   "include": [
     "src/**/*",
-    "example/**/*",
     "typings/**/*"
   ],
   "exclude": [

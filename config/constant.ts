@@ -1,18 +1,9 @@
-// 基本前缀
-export const BASE_URL = {
-  development: '/api',
-  production: '/',
-  beta: '/beta',
-  release: '/release',
-};
 // 开发端口
 export const PORT = 8080;
 // 基本路径
 export const VITE_BASE_PATH = '/';
-// 请求接口地址
-export const VITE_PROXY_HTTP = 'http://localhost:1314';
 // 应用名称
-export const VITE_APP_TITLE = 'Vite React App';
+export const VITE_APP_TITLE = 'ELI React SDK Vite';
 // 开启 mock
 export const VITE_APP_MOCK: boolean = true;
 // 开启包依赖分析 可视化

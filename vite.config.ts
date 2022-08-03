@@ -1,10 +1,8 @@
 import dayjs from 'dayjs';
 import path from 'path';
 import type { ConfigEnv, UserConfig } from 'vite';
-
 import { PORT, VITE_BASE_PATH, VITE_DROP_CONSOLE } from './config/constant';
-import { createVitePlugins } from './config/vite/plugins';
-import { createProxy } from './config/vite/proxy';
+import { createVitePlugins } from './config/plugins';
 import pkg from './package.json';
 
 const { dependencies, devDependencies, name, version } = pkg;
@@ -12,9 +10,9 @@ const __APP_INFO__ = {
   pkg: { dependencies, devDependencies, name, version },
   lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
 };
+
 const resolve = _path => path.resolve(__dirname, _path);
 
-// 函数式配置
 const ViteConfig = ({ command, mode }: ConfigEnv): UserConfig => {
   const isBuild = command === 'build';
 
@@ -46,8 +44,7 @@ const ViteConfig = ({ command, mode }: ConfigEnv): UserConfig => {
     },
     server: {
       host: true,
-      port: PORT, // 开发环境启动的端口
-      proxy: createProxy(),
+      port: PORT,
     },
     build: {
       outDir: 'build',
@@ -60,8 +57,8 @@ const ViteConfig = ({ command, mode }: ConfigEnv): UserConfig => {
       },
     },
     define: {
-      // 设置应用信息
       __APP_INFO__: JSON.stringify(__APP_INFO__),
+      PUBLIC_BASE_URL: JSON.stringify(`https://fbm-api-${mode}.fbmms.cn`),
     },
   };
 };
