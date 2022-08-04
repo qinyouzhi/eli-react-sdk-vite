@@ -1,4 +1,4 @@
-# eli-react-sdk(鳄梨科技 web端SDK模版)
+# eli-react-sdk-vite (鳄梨科技 web端SDK模版)
 
 ## :pushpin: 依赖模块
 

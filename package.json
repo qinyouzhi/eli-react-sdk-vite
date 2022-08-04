@@ -1,7 +1,7 @@
 {
-  "name": "eli-react-sdk",
+  "name": "eli-react-sdk-vite",
   "version": "1.0.0",
-  "description": "React SDK",
+  "description": "React SDK Vite",
   "author": "qinyoubing",
   "license": "MIT",
   "main": "lib/index.js",
