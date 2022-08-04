@@ -61,7 +61,7 @@
     "lib": "npm run clean && npm run lib:cjs && npm run lib:esm",
     "lib:cjs": "env NODE_ENV=release node ./scripts/lib-cjs.js",
     "lib:esm": "env NODE_ENV=release node ./scripts/lib-esm.js",
-    "lib:debug": "npm run clean && npm run lib:cjs:debug && npm run lib:esm:debug",
+    "lib:debug": "npm run clean && npm run lib:debug:cjs && npm run lib:debug:esm",
     "lib:debug:cjs": "env NODE_ENV=dev1 node ./scripts/lib-cjs.js",
     "lib:debug:esm": "env NODE_ENV=dev1 node ./scripts/lib-esm.js",
     "release": "np --no-yarn --no-tests --no-cleanup",
