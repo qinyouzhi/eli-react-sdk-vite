@@ -1,5 +1,4 @@
 import dayjs from 'dayjs';
-import path from 'path';
 import type { ConfigEnv, UserConfig } from 'vite';
 import { PORT, VITE_BASE_PATH, VITE_DROP_CONSOLE } from './config/constant';
 import { createVitePlugins } from './config/plugins';
@@ -11,8 +10,6 @@ const __APP_INFO__ = {
   pkg: { dependencies, devDependencies, name, version },
   lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
 };
-
-const resolve = _path => path.resolve(__dirname, _path);
 
 const ViteConfig = ({ command, mode }: ConfigEnv): UserConfig => {
   const isBuild = command === 'build';
@@ -31,16 +28,16 @@ const ViteConfig = ({ command, mode }: ConfigEnv): UserConfig => {
     },
     resolve: {
       alias: [
-        { find: '@@', replacement: resolve('../') },
-        { find: '@', replacement: resolve('../src') },
-        { find: '@components', replacement: resolve('../src/components') },
-        { find: '@services', replacement: resolve('../src/services') },
-        { find: '@utils', replacement: resolve('../src/utils') },
-        { find: '@hooks', replacement: resolve('../src/hooks') },
-        { find: '@enum', replacement: resolve('../src/enum') },
-        { find: '@store', replacement: resolve('../src/store') },
-        { find: '@constants', replacement: resolve('../src/constants') },
-        { find: '@assets', replacement: resolve('../src/assets') },
+        { find: '@@', replacement: './' },
+        { find: '@', replacement: './src' },
+        { find: '@components', replacement: './src/components' },
+        { find: '@services', replacement: './src/services' },
+        { find: '@utils', replacement: './src/utils' },
+        { find: '@hooks', replacement: './src/hooks' },
+        { find: '@enum', replacement: './src/enum' },
+        { find: '@store', replacement: './src/store' },
+        { find: '@constants', replacement: './src/constants' },
+        { find: '@assets', replacement: './src/assets' },
       ],
     },
     server: {
