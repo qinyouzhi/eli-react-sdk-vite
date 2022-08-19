@@ -1,9 +1,12 @@
+import path from 'path';
 import dayjs from 'dayjs';
 import type { ConfigEnv, UserConfig } from 'vite';
 import { PORT, VITE_BASE_PATH, VITE_DROP_CONSOLE } from './config/constant';
 import { createVitePlugins } from './config/plugins';
 import pkg from './package.json';
 const constant = require('./scripts/constant');
+
+const resolve = (_: string) => path.resolve(__dirname, _);
 
 const { dependencies, devDependencies, name, version } = pkg;
 const __APP_INFO__ = {
@@ -27,18 +30,18 @@ const ViteConfig = ({ command, mode }: ConfigEnv): UserConfig => {
       },
     },
     resolve: {
-      alias: [
-        { find: '@@', replacement: './' },
-        { find: '@', replacement: './src' },
-        { find: '@components', replacement: './src/components' },
-        { find: '@services', replacement: './src/services' },
-        { find: '@utils', replacement: './src/utils' },
-        { find: '@hooks', replacement: './src/hooks' },
-        { find: '@enum', replacement: './src/enum' },
-        { find: '@store', replacement: './src/store' },
-        { find: '@constants', replacement: './src/constants' },
-        { find: '@assets', replacement: './src/assets' },
-      ],
+      alias: {
+        '@@': resolve('./'),
+        '@': resolve('./src'),
+        '@components': resolve('./src/components'),
+        '@services': resolve('./src/services'),
+        '@utils': resolve('./src/utils'),
+        '@hooks': resolve('./src/hooks'),
+        '@enum': resolve('./src/enum'),
+        '@store': resolve('./src/store'),
+        '@constants': resolve('./src/constants'),
+        '@assets': resolve('./src/assets'),
+      },
     },
     server: {
       host: true,
