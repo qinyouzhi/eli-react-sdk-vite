@@ -41,7 +41,7 @@
     "arrow-spacing": [2, { "before": true, "after": true }], // 箭头函数，箭头前后空格
     "max-len": [2, { "code": 150 }],
     "react/jsx-indent": [2, 2],
-    "space-before-function-paren": 2, // 函数声明时括号与函数名间加空格
+    // "space-before-function-paren": 2, // 函数声明时括号与函数名间加空格
     "space-infix-ops": 2, // 字符串拼接操作符 (Infix operators) 之间要留空格
     "comma-spacing": 2, // 逗号后面加空格
     "array-bracket-spacing": [2, "never"], // []内是否允许不必要的空格
